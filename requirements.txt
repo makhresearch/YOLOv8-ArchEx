@@ -243,7 +243,7 @@ soupsieve==2.7
 soxr==0.5.0.post1
 spectra==0.0.11
 split-folders==0.5.1
-SQLAlchemy==2.0.43
+SQLAlchemy==2.0.44
 sqlparse==0.4.4
 statsmodels==0.14.0
 sympy==1.12
