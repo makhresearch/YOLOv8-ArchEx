@@ -6,8 +6,6 @@ This project is a proof-of-concept for customizing and extending the YOLOv8 neur
 
 This provides a solid foundation for task-specific adaptations, such as improving small object detection for applications like license plate recognition.
 
-This project was developed under the supervision of **Dr. Mirhasani**.
-
 ---
 
 ## Key Features
