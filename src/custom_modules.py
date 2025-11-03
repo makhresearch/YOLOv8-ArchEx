@@ -1,12 +1,12 @@
-import torch
 import torch.nn as nn
+
 # To access the autopad function, we need to import it from the modules folder
 from .modules.conv import autopad
 
+
 class MyCustomConv(nn.Module):
-    """
-    This is an example of a custom convolution module.
-    """
+    """This is an example of a custom convolution module."""
+
     def __init__(self, c1, c2, k=1, s=1, p=None, g=1, d=1, act=True):
         super().__init__()
         self.conv = nn.Conv2d(c1, c2, k, s, autopad(k, p, d), groups=g, dilation=d, bias=False)
