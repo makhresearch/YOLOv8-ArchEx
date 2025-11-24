@@ -10,10 +10,10 @@ This provides a solid foundation for task-specific adaptations, such as improvin
 
 ## Key Features
 
--   **Modular Customization:** A clear example of how to add custom modules (`MyCustomConv`) in a separate, organized file (`src/custom_modules.py`).
--   **Architecture Configuration:** A custom YAML file (`src/my-yolo.yaml`) that integrates the new module into the YOLOv8 backbone.
--   **Core Library Patching:** Detailed instructions on how to patch the `ultralytics` core (`tasks.py`) to make it aware of the new custom components.
--   **Complete Documentation:** A full technical report is available in the `docs` directory, detailing the project's philosophy, challenges, and solutions.
+- **Modular Customization:** A clear example of how to add custom modules (`MyCustomConv`) in a separate, organized file (`src/custom_modules.py`).
+- **Architecture Configuration:** A custom YAML file (`src/my-yolo.yaml`) that integrates the new module into the YOLOv8 backbone.
+- **Core Library Patching:** Detailed instructions on how to patch the `ultralytics` core (`tasks.py`) to make it aware of the new custom components.
+- **Complete Documentation:** A full technical report is available in the `docs` directory, detailing the project's philosophy, challenges, and solutions.
 
 ## Project Structure
 
@@ -71,21 +71,23 @@ Now, copy the custom files from this repository (`YOLOv8-ArchEx`) into the `ultr
 
 3.  **Patch the Core Model Parser (`tasks.py`):**
     This is the most critical step. Open `ultralytics/ultralytics/nn/tasks.py` and make the following two changes:
-    *   **Import the custom module** at the top of the file:
-        ```python
-        from .custom_modules import MyCustomConv
-        ```
-    *   **Register the module.** Inside the `parse_model` function, find the `base_modules` frozenset and add `MyCustomConv` to the list (e.g., right after `Conv`):
-        ```python
-        base_modules = frozenset(
-            {
-                Classify,
-                MyCustomConv,  # <-- Add this line
-                Conv,
-                # ... rest of the modules
-            }
-        )
-        ```
+    - **Import the custom module** at the top of the file:
+
+      ```python
+
+      ```
+
+    - **Register the module.** Inside the `parse_model` function, find the `base_modules` frozenset and add `MyCustomConv` to the list (e.g., right after `Conv`):
+      ```python
+      base_modules = frozenset(
+          {
+              Classify,
+              MyCustomConv,  # <-- Add this line
+              Conv,
+              # ... rest of the modules
+          }
+      )
+      ```
 
 ### Step 3: Run the Custom Training
 
